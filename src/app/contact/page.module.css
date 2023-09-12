@@ -1,0 +1,64 @@
+.container {
+ 
+}
+
+.title{
+    font-size: 72px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.content{
+    display: flex;
+    gap: 100px;
+    align-items: center;
+}
+
+.imgCont{
+    flex: 1;
+    height: 500px;
+    position: relative;
+
+}
+
+.img{
+    object-fit: contain;
+    animation: bob 3s infinite ease alternate;
+}
+
+@keyframes bob {
+    from{
+        transform: translateY(15px);
+    }
+    to {
+        transform: translateY(0px) scale(1.03);
+    }
+}
+
+.form{
+    flex: 1;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+
+}
+
+.input{
+padding: 20px;
+background-color: inherit;
+outline: none;
+color: #bbb;
+border: 3px solid #bbb;
+font-size: 20px;
+font-weight: bold;
+}
+
+.textArea{
+    padding: 20px;
+    background-color: inherit;
+    border: 3px solid #bbb;
+    outline: none;
+    color: #bbb;
+    font-size: 20px;
+    font-weight: bold;
+}

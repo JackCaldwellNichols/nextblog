@@ -1,0 +1,19 @@
+.container {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: small;
+}
+
+.icon {
+    cursor: pointer;
+    opacity: 0.6;
+}
