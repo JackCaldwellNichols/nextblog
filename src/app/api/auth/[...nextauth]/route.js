@@ -7,33 +7,47 @@ import User from "@/models/User"
 import bcrypt from 'bcryptjs'
 
 
-const handler = NextAuth({
+const handler =  NextAuth({
   providers: [
+    CredentialsProvider({
+      id: "credentials",
+      name: "Credentials",
+      async authorize(credentials) {
+        //Check if the user exists.
+        await connect();
+
+        try {
+          const user = await User.findOne({
+            email: credentials.email,
+          });
+
+          if (user) {
+            const isPasswordCorrect = await bcrypt.compare(
+              credentials.password,
+              user.password
+            );
+
+            if (isPasswordCorrect) {
+              return user;
+            } else {
+              throw new Error("Wrong Credentials!");
+            }
+          } else {
+            throw new Error("User not found!");
+          }
+        } catch (err) {
+          throw new Error(err);
+        }
+      },
+    }),
     GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID ?? "",
       clientSecret: process.env.GITHUB_CLIENT_SECRET ?? "",
     }),
-    CredentialsProvider({
-      id: 'credentials',
-      name: 'Credentials',
-      async authorise(credentials){
-        await connect();
-
-        try {
-          const user = await User.findOne({email: credentials.email})
-          if(user){
-            const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password);
-            if(isPasswordCorrect){
-              return user
-            }else{
-              throw new Error("Password is incorrect.")
-            }
-          }
-        } catch (error) {
-          throw new Error(error)
-        }
-      }
-    })
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
   ],
 pages: {
   error:"/dashboard/login"

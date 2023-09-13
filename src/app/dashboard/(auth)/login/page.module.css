@@ -34,3 +34,36 @@
     color: white;
 
 }
+
+
+.google {
+    background-color: rgba(228, 97, 50, 0.72);
+    cursor: pointer;
+    border: none;
+    font-size: 20pz;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    padding: 20px;
+    width: 300px;  
+  }
+  
+  .google:hover {
+    background-color: rgba(228, 97, 50, 0.803);
+  }
+
+  .github {
+    background-color: rgba(32, 30, 30, 0.72);
+    cursor: pointer;
+    border: none;
+    font-size: 20pz;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    padding: 20px;
+    width: 300px;  
+  }
+  
+  .github:hover {
+    background-color: black;
+  }

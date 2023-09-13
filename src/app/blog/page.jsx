@@ -20,7 +20,7 @@ const data = await getData();
 
   return (
     <div className={styles.container}>
-      {data.map((ele) => (
+      {data?.map((ele) => (
       <Link className={styles.wrapper} href={`/blog/${ele._id}`}>
         <div className={styles.imgCont}>
           <Image className={styles.img} src={ele.image} alt='BlogImg' fill={true}/>

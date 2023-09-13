@@ -36,13 +36,13 @@ const data = await getData(params.id)
           </h1>
           <p className={styles.desc}>{data.desc}</p>
           <div className={styles.userCont}>
-            <Image src={data.image} alt='' className={styles.userImg} height={30} width={30}/>          
+        <Image src={data.image} alt='' className={styles.userImg} height={30} width={30}/>         
             <span className={styles.userName}>{data.userName}</span>
             </div>
         </div>
      
       <div className={styles.topRight}>
-        <Image src={data.image} alt='blogpostImg' className={styles.blogImg} fill={true}/>
+ <Image src={data.image} alt='' className={styles.userImg} height={30} width={30}/>  
       </div>
       </div>
       <div className={styles.bottom}>
